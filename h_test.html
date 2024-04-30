@@ -14,6 +14,67 @@
             background-color: #f4f4f4; /* 背景颜色 */
             font-family: 'Arial', sans-serif;
         }
+
+        .header0 {
+            width: 100%;
+            height: 60px;
+            background-color: transparent;
+        }
+
+        .w1200 {
+            width: 100%;
+            max-width: 1300px; /* 最大宽度限制 */
+            margin: 0 auto;
+        }
+
+        /* 其他样式保持不变，但请确保移除.w1200的固定宽度，使用max-width和width: 100% */
+
+        .w1200 ul {
+            float: right;
+        }
+        .w1200 ul a {
+            float: left;
+            line-height: 60px;
+            margin: 0 10px 0 10px;
+            font-family:华文行楷;
+            /*font-weight: bold;*/
+            font-size: 24px;
+        }
+        .blog {
+            height: 60px;
+            line-height: 60px;
+            float: left;
+            font-family:STCaiyun;
+            font-size: 24px;
+        }
+        a {
+            /* a标签默认样式太丑了，我们换个耐看的颜色 */
+            color: #000000;
+            text-decoration: none;
+            outline: none;
+        }
+
+        a:hover {
+            /* 鼠标经过链接时，链接变成红色 */
+            color: #0800ff;
+            font-size: 30px;
+
+        }
+
+        .header1 {
+            width: 100%;
+            padding: 20px 0;
+            text-align: center;
+            background-color: #f2f2f2;
+            border-bottom: 1px solid #ddd;
+        }
+        .header-title {
+            margin: 5px 0;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+
         .header {
             flex: 1;
             display: flex;
@@ -56,14 +117,24 @@
             margin-left: 50%; /* 使竖线居中 */
             transform: translateX(-50%); /* 调整位置使其居中 */
         }
+        /*.footer {*/
+        /*    position: fixed; !* 固定定位 *!*/
+        /*    bottom: 0; !* 紧贴底部 *!*/
+        /*    display: flex;*/
+        /*    justify-content: space-between; !* 水平两端对齐 *!*/
+        /*    width: 100%; !* 保持宽度为100% *!*/
+        /*    padding: 0; !* 移除外边距 *!*/
+        /*    background-color: #f4f4f4; !* 背景颜色 *!*/
+        /*}*/
+
         .footer {
-            position: fixed; /* 固定定位 */
-            bottom: 0; /* 紧贴底部 */
             display: flex;
-            justify-content: space-between; /* 水平两端对齐 */
-            width: 100%; /* 保持宽度为100% */
-            padding: 0; /* 移除外边距 */
-            background-color: #f4f4f4; /* 背景颜色 */
+            justify-content: space-between;
+            width: 100%;
+            padding: 0;
+            background-color: #f4f4f4;
+            /* 移除position: fixed; */
+            /* 可以根据需要添加其他定位方式，如position: relative;*/
         }
 
         .footer-column {
@@ -83,8 +154,8 @@
         }
 
         .red-box {
-            width: 500px; /* 根据需要调整宽度 */
-            height: 150px; /* 根据需要调整高度 */
+            width: 100%; /* 根据需要调整宽度 */
+            height: 50px; /* 根据需要调整高度 */
             background-color: transparent; /* 确保没有背景颜色 */
             margin-bottom: 20px; /* 红色框与下面蓝色框之间的间距 */
             border: 2px solid red; /* 红色边框 */
@@ -92,7 +163,7 @@
 
         .footer-box{
             width: 250px; /* 根据需要调整宽度 */
-            height: 50px; /* 根据需要调整高度 */
+            height: 40px; /* 根据需要调整高度 */
             background-color: transparent; /* 确保没有背景颜色 */
             margin-bottom: 20px; /* 红色框与下面蓝色框之间的间距 */
             border: 2px solid deepskyblue; /* 色边框 */
@@ -132,6 +203,23 @@
     </style>
 </head>
 <body>
+<header class="header0">
+    <div class="w1200">
+                <span class="blog">
+                    <a href="index.html">网站名称</a>
+                </span>
+        <ul>
+            <a href="index.html" >首页</a>
+            <a href="voice.html" target="_blank">语音态势识别</a>
+            <a href="h_test.html" target="_blank">视频界面</a>
+            <a href="message_board.html" target="_blank">页面三</a>
+        </ul>
+    </div>
+</header>
+<div class="header1">
+    <h1 class="header-title">视频界面</h1>
+</div>
+
 <div class="header">
     <div class="video-container">
 <!--        <label for="fileInput" class="file-upload-btn">选择文件</label>-->
