@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>语音识别态势感知</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header0 {
+            width: 100%;
+            height: 60px;
+            background-color:transparent;
+        }
+        .w1200 {
+            width: 1300px;
+            height: 60px;
+            background-color:transparent;
+            /* 居中 */
+            margin: 0 auto 0 auto;
+        }
+        .w1200 ul {
+            float: right;
+        }
+        .w1200 ul a {
+            float: left;
+            line-height: 60px;
+            margin: 0 10px 0 10px;
+            font-family:华文行楷;
+            font-size: 24px;
+        }
+        .blog {
+            height: 60px;
+            line-height: 60px;
+            float: left;
+            font-family:STCaiyun;
+            font-size: 24px;
+        }
+        a {
+            /* a标签默认样式太丑了，我们换个耐看的颜色 */
+            color: #666;
+            text-decoration: none;
+            outline: none;
+        }
+
+        a:hover {
+            /* 鼠标经过链接时，链接变成红色 */
+            color: #0800ff;
+            font-size: 30px;
+
+        }
+
+
+        .header {
+            width: 100%;
+            padding: 20px 0;
+            text-align: center;
+            background-color: #f2f2f2;
+            border-bottom: 1px solid #ddd;
+        }
+        .header-time {
+            margin: 0;
+            font-size: 1.2em;
+        }
+        .header-title {
+            margin: 5px 0;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        .container {
+            width: 95%;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .chat, .voice-recognition {
+            padding: 20px; /* 内边距为20像素 */
+        }
+
+        .chat {
+            border-right: 1px solid #ddd; /* 聊天区域右侧有1像素的实线边框 */
+            flex-basis: calc(33.333% - 10px); /* 占三分之一宽度，减去右边距 */
+        }
+
+        .voice-recognition {
+            flex-grow: 1; /* 允许元素增长以占据更多空间 */
+            flex-basis: calc(66.666% - 20px); /* 占三分之二宽度，减去左右内边距 */
+        }
+        .info-list {
+            list-style: none;
+            padding: 0;
+        }
+        .info-list li {
+            padding: 5px 0;
+            border-bottom: 1px dashed #ddd;
+        }
+        .stats {
+            display: flex; /* 启用Flexbox布局 */
+            flex-direction: row; /* 设置子元素水平排列 */
+            align-items: flex-start; /* 使子元素在交叉轴上（即垂直方向）左对齐 */
+            margin-bottom: 5px; /* 为每个.stats块添加一些间隔 */
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .stats > div {
+            width: calc(50% - 10px); /* 设置子元素的宽度为容器宽度的一半减去间隔 */
+            margin-right: 10px; /* 在子元素之间添加一些间隔 */
+        }
+
+        .stats > div:last-child {
+            margin-right: 0; /* 最后一个元素不需要右边距 */
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        table th {
+            background-color: #f2f2f2;
+        }
+        .play-button {
+            cursor: pointer;
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .play-button:hover {
+            background-color: #0056b3;
+        }
+        .download-button {
+            cursor: pointer;
+            padding: 5px 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .download-button:hover {
+            background-color: #1e7e34;
+        }
+
+
+        .chat_commento{
+            width: 450px;
+            height: 650px;
+            margin: auto;
+            border-radius: 10px;
+            border: 2px solid #f4f5f7;
+            overflow-x: hidden; //水平隐藏
+            overflow-y: scroll; //垂直滚动
+        }
+        .clearfix::after{
+            content: "";
+            display: block;
+            clear: both;
+            width: 0;
+            height: 0;
+            line-height: 0;
+            visibility: hidden;
+        }
+        /* middle */
+        /* 左边 */
+        .chat_middle{
+            width: 450px;
+            height: 455px;
+            position: relative;
+            box-sizing: border-box;
+            overflow: auto;
+            border-width: 0px;
+        }
+        .chat_left{
+            width: 100%;
+            height: 60px;
+            margin-top: 10px;
+        }
+        .chat_left_item_1{
+            /*width: 50px;*/
+            /*height: 50px;*/
+            /*background-color: #4459AB;*/
+            float: left;
+            margin-top: 10px;
+            margin-left: 10px;
+            margin-right: 10px;
+            text-align: center;
+            line-height: 50px;
+            color: white;
+            border-radius: 25px;
+        }
+        .chat_left_item_1 {
+            position: relative; /* 为头像定位做准备 */
+            padding-left: 60px; /* 为头像图片留出空间 */
+        }
+
+        .chat-avatar {
+            position: absolute; /* 将头像定位到聊天文本左侧 */
+            left: 0; /* 头像靠左对齐 */
+            top: 0; /* 头像顶部对齐 */
+            width: 50px; /* 头像宽度，根据需要调整 */
+            height: 50px; /* 头像高度，根据需要调整 */
+            border: 2px solid #ddd; /* 为头像添加边框，如有需要 */
+        }
+        /*.chat_left_item_2 .chat_left_chat{*/
+        /*    float: left;*/
+        /*}*/
+        /*聊天框*/
+        .chat_left_item_2 .chat_left_content{
+            padding: 15px;
+            margin-top: 10px;
+            background-color: #f4f5f7;
+            display: inline-block;
+            border-radius: 10px;
+            border-top-left-radius: 0px;
+        }
+        /* 右边 */
+        .chat_right{
+            width: 100%;
+            height: 120px;
+            margin-top: 10px;
+        }
+        .chat_right_item_1{
+            /*width: 50px;*/
+            /*height: 50px;*/
+            /*background-color: #4459AB;*/
+            float: right;
+            margin-top: 10px;
+            margin-left: 10px;
+            margin-right: 10px;
+            text-align: center;
+            line-height: 50px;
+            color: white;
+            border-radius: 25px;
+        }
+        .chat_right_item_1 {
+            position: relative; /* 为头像定位做准备 */
+            padding-left: 60px; /* 为头像图片留出空间 */
+        }
+        .chat-avatar {
+            width: 40px; /* 根据需要设置头像的宽度 */
+            height: 40px; /* 根据需要设置头像的高度 */
+            /* 如果需要方形头像，确保 border-radius 为 0 */
+            border-radius: 0;
+            /* 添加其他样式，如边框等 */
+            border: 1px solid #ddd;
+        }
+
+        .chat_right_item_2{
+            width: 55%;
+            height: 100px;
+            float: right;
+            margin-top: 10px;
+        }
+        .chat_right_content{
+            float: right;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 10px;
+            border-top-right-radius: 0px;
+            background-color: #4F7cff;
+            color: white;
+        }
+
+        .chat_context{
+            width: 100%;
+            height: 100%;
+            font-size: 17px;
+            box-sizing: border-box;
+            outline: none;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            border-width: 0px;
+            padding: 16px;
+        }
+        .chat_commit{
+            width: 80px;
+            height: 30px;
+            color: white;
+            background-color: #4F7cff;
+            line-height: 30px;
+            text-align: center;
+            border-radius: 5px;
+            position: absolute;
+            right: 10px;
+            bottom: 20px;
+            margin-right: 10px;
+        }
+
+        .centered-cell {
+            text-align: center; /* 水平居中 */
+            vertical-align: middle; /* 垂直居中 */
+        }
+
+    </style>
+</head>
+<body>
+<header class="header0">
+    <div class="w1200">
+                <span class="blog">
+                    <a href="index.html">网站名称</a>
+                </span>
+        <ul>
+            <a href="index.html" >首页</a>
+            <a href="voice.html" target="_blank">语音态势识别</a>
+            <a href="http://www.cxy521.com/" target="_blank">页面二</a>
+            <a href="message_board.html" target="_blank">页面三</a>
+        </ul>
+    </div>
+</header>
+<div class="header">
+    <p class="header-time" id="header-time">北京时间：2024-04-26 09:55:55</p>
+    <h1 class="header-title">语音识别态势感知</h1>
+</div>
+<div class="container">
+    <div class="chat">
+        <div class="chat_commento">
+            <!-- line -->
+            <div class="line"></div>
+            <!-- middle -->
+            <div class="chat_middle" id="chat_middle_item">
+                <!-- 左边 -->
+                <div class="chat_left clearfix">
+                    <div class="chat_left_item_1">
+                        <img src="image/plane.png" alt="头像" class="chat-avatar">
+                    </div>
+                    <div class="chat_left_item_2">
+                        <div class="chat_left_content">
+                            机坪你好 东方1234 停机位10 准备好
+                        </div>
+                    </div>
+                </div>
+                <!--右边 -->
+                <div class="chat_right">
+                    <div class="chat_right_item_1">
+                        <img src="image/person.png" alt="头像" class="chat-avatar">
+                    </div>
+                    <div class="chat_right_item_2 ">
+                        <div class="chat_right_content">
+                            东方1234 挂拖车 挂好报
+                        </div>
+                    </div>
+                </div>
+                <!-- l_2 -->
+                <div class="chat_left clearfix">
+                    <div class="chat_left_item_1">
+                        <img src="image/plane.png" alt="头像" class="chat-avatar">
+                    </div>
+                    <div class="chat_left_item_2">
+                        <div class="chat_left_content">
+                            挂拖车 挂好报 东方1234
+                        </div>
+                    </div>
+                </div>
+                <!-- l_3 -->
+                <div class="chat_left clearfix">
+                    <div class="chat_left_item_1">
+                        <img src="image/plane.png" alt="头像" class="chat-avatar">
+                    </div>
+                    <div class="chat_left_item_2">
+                        <div class="chat_left_content">
+                            东方1234 拖车挂好 请求推开
+                        </div>
+                    </div>
+                </div>
+                <!-- l_4 -->
+                <div class="chat_left clearfix">
+                    <div class="chat_left_item_1">
+                        <img src="image/plane.png" alt="头像" class="chat-avatar">
+                    </div>
+                    <div class="chat_left_item_2">
+                        <div class="chat_left_content">
+                            东方1234 拖车挂好 请求推开
+                        </div>
+                    </div>
+                </div>
+                <!-- l_4 -->
+                <div class="chat_left clearfix">
+                    <div class="chat_left_item_1">
+                        <img src="image/plane.png" alt="头像" class="chat-avatar">
+                    </div>
+                    <div class="chat_left_item_2">
+                        <div class="chat_left_content">
+                            东方1234 拖车挂好 请求推开
+                        </div>
+                    </div>
+                </div>
+                <!-- l_5 -->
+                <div class="chat_left clearfix">
+                    <div class="chat_left_item_1">
+                        <img src="image/plane.png" alt="头像" class="chat-avatar">
+                    </div>
+                    <div class="chat_left_item_2">
+                        <div class="chat_left_content">
+                            东方1234 拖车挂好 请求推开
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="voice-recognition">
+        <div class="stats">
+            <div>音量（分贝）：55</div>
+            <div>当前航班数：1</div>
+        </div>
+        <div class="stats">
+            <div>语速（字每分钟）：123</div>
+            <div>已发指令（条）：1</div>
+        </div>
+        <div class="stats">
+            <div>语音识别率（百分比）：97%</div>
+            <div>指挥时长（分钟）：3</div>
+        </div>
+        <table>
+            <tr>
+                <th class="centered-cell">航班号</th>
+                <th class="centered-cell">出发/到达机场</th>
+                <th class="centered-cell">停机位</th>
+                <th class="centered-cell">状态</th>
+                <th class="centered-cell">音频时长（分钟）</th>
+                <th class="centered-cell">回放（增强）</th>
+                <th class="centered-cell">提取文字</th>
+            </tr>
+            <!-- Sample table row -->
+            <tr>
+                <td class="centered-cell">CSN4321</td>
+                <td class="centered-cell">ZBTJ/ZGNN</td>
+                <td class="centered-cell">10</td>
+                <td class="centered-cell">离港</td>
+                <td class="centered-cell">9</td>
+                <td class="centered-cell"><button class="play-button">播放</button></td>
+                <td class="centered-cell"><button class="download-button">下载</button></td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+<script>
+    // 脚本开始
+    function updateTime() {
+        // 创建一个新日期对象，获取当前的北京时间
+        var now = new Date();
+        // 格式化日期为 "YYYY-MM-DD HH:mm:ss" 的形式
+        var dateTimeStr = now.getFullYear() + '-' +
+            (now.getMonth() + 1) + '-' +
+            now.getDate() + ' ' +
+            now.getHours() + ':' +
+            now.getMinutes() + ':' +
+            now.getSeconds();
+        // 获取时间显示的元素并更新其内容
+        document.getElementById('header-time').textContent = '北京时间：' + dateTimeStr;
+    }
+
+    // 当页面加载完成后，设置一个定时器每1000毫秒（1秒）更新时间
+    window.onload = function() {
+        setInterval(updateTime, 1000);
+    };
+    // 脚本结束
+</script>
+
+
+</html>
