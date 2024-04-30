@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>视频界面布局</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            background-color: #f4f4f4; /* 背景颜色 */
+            font-family: 'Arial', sans-serif;
+        }
+        .header {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px 0;
+        }
+        .video-container {
+            flex: 0 1 50%; /* 两个视频容器平分空间，但不超过其内容大小 */
+            margin: 0 10px; /* 左右边距 */
+            position: relative;
+            text-align: center; /* 使内部元素水平居中 */
+        }
+        #videoPlayer, #videoPlayer1 {
+            max-width: 100%;
+            max-height: 60vh; /* 视频高度不超过视口高度的60% */
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+        }
+        .file-upload-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #3498db;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none;
+        }
+        /*.file-upload-btn:hover {*/
+        /*    background-color: #2980b9;*/
+        /*}*/
+        .vertical-line {
+            height: 100vh; /* 竖线的高度 */
+            width: 2px; /* 竖线的粗细 */
+            background-color: black; /* 竖线的颜色 */
+            margin-left: 50%; /* 使竖线居中 */
+            transform: translateX(-50%); /* 调整位置使其居中 */
+        }
+        .footer {
+            position: fixed; /* 固定定位 */
+            bottom: 0; /* 紧贴底部 */
+            display: flex;
+            justify-content: space-between; /* 水平两端对齐 */
+            width: 100%; /* 保持宽度为100% */
+            padding: 0; /* 移除外边距 */
+            background-color: #f4f4f4; /* 背景颜色 */
+        }
+
+        .footer-column {
+            display: flex;
+            flex-direction: column; /* 垂直排列 */
+            align-items: center; /* 水平居中 */
+            width: calc(50% - 100px); /* 设置宽度为屏幕一半减去100px的边距，100px可以根据需要调整 */
+            margin: 0; /* 重置外边距 */
+        }
+
+        .footer-column:first-child {
+            margin-left: 50px; /* 左边距，根据需要调整 */
+        }
+
+        .footer-column:last-child {
+            margin-right: 50px; /* 右边距，根据需要调整 */
+        }
+
+        .red-box {
+            width: 500px; /* 根据需要调整宽度 */
+            height: 150px; /* 根据需要调整高度 */
+            background-color: transparent; /* 确保没有背景颜色 */
+            margin-bottom: 20px; /* 红色框与下面蓝色框之间的间距 */
+            border: 2px solid red; /* 红色边框 */
+        }
+
+        .footer-box{
+            width: 250px; /* 根据需要调整宽度 */
+            height: 50px; /* 根据需要调整高度 */
+            background-color: transparent; /* 确保没有背景颜色 */
+            margin-bottom: 20px; /* 红色框与下面蓝色框之间的间距 */
+            border: 2px solid deepskyblue; /* 色边框 */
+        }
+
+        .video-container {
+            flex: 1; /* 视频容器占据一半空间 */
+            display: flex;
+            flex-direction: column; /* 子元素垂直排列 */
+            align-items: center; /* 水平居中 */
+            margin: 10px; /* 增加边距 */
+        }
+
+        .video-container video {
+            width: 90%; /* 视频宽度 */
+            max-height: 60vh; /* 视频高度不超过视口高度的60% */
+            border: none; /* 移除边框 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 添加阴影效果 */
+        }
+
+        .footer-column {
+            flex: 1; /* 两列平分空间 */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 10px;
+        }
+
+        .footer-box {
+            width: 100%; /* 填满父容器宽度 */
+            margin-bottom: 10px;
+            border: 1px solid deepskyblue; /* 边框颜色 */
+        }
+
+
+
+    </style>
+</head>
+<body>
+<div class="header">
+    <div class="video-container">
+<!--        <label for="fileInput" class="file-upload-btn">选择文件</label>-->
+        <input type="file" id="fileInput" accept="video/*" onchange="loadVideo(this)">
+        <video id="videoPlayer" controls>
+            <source src="" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+    </div>
+
+    <div class="video-container">
+<!--        <label for="fileInput1" class="file-upload-btn">选择文件</label>-->
+        <input type="file" id="fileInput1" accept="video/*" onchange="loadVideo(this)">
+        <video id="videoPlayer1" controls>
+            <source src="" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+</div>
+<!-- 页面底部的左右两侧各有一列框上下排列 -->
+<div class="footer">
+
+    <div class="footer-column">
+        <div class="red-box">停机编号：</div>
+飞机入位时刻
+        <div class="footer-box"></div>
+        飞机离位时刻
+        <div class="footer-box"></div>
+        停机位利用率
+        <div class="footer-box"></div>
+    </div>
+
+    <div class="footer-column">
+        <div class="red-box">摄像头编号：</div>
+        飞机数量
+        <div class="footer-box"></div>
+        设备车数量
+        <div class="footer-box"></div>
+
+    </div>
+</div>
+
+<div class="vertical-line"></div>
+<script>
+    function loadVideo(fileInput) {
+        var videoPlayerId = fileInput.id === 'fileInput' ? 'videoPlayer' : 'videoPlayer1';
+        var videoPlayer = document.getElementById(videoPlayerId);
+        var file = fileInput.files[0];
+        if (file) {
+            var src = URL.createObjectURL(file);
+            videoPlayer.querySelector('source').setAttribute('src', src);
+            videoPlayer.load();
+            // 隐藏占位文本
+            document.querySelector('.' + videoPlayerId.replace('videoPlayer', 'placeholder')).style.display = 'none';
+        } else {
+            // 显示占位文本
+            document.querySelector('.' + videoPlayerId.replace('videoPlayer', 'placeholder')).style.display = 'block';
+        }
+    }
+</script>
+</body>
+</html>
