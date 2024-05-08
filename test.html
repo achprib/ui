@@ -12,7 +12,7 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            background-color: #f2f2f2; /* 统一的背景颜色 */
+            background-color: #ffffff; /* 统一的背景颜色 */
             min-height: 100vh; /* 至少为视口的高度 */
             display: flex;
             flex-direction: column;
@@ -21,7 +21,7 @@
 
         .header0 {
             width: 100%;
-            height: 60px;
+            height: 8vh;
             background-color: transparent;
         }
 
@@ -38,15 +38,16 @@
         }
         .w1200 ul a {
             float: left;
-            line-height: 60px;
-            margin: 0 10px 0 10px;
-            font-family:黑体;
-            font-weight: bold;
+            line-height: 5vh;
+            margin: 0 1vh 0 1vh;
+            font-family:华文行楷;
+            /*font-weight: bold;*/
             font-size: 24px;
         }
         .blog {
-            height: 60px;
-            line-height: 60px;
+            height: 5vh;
+            /*line-height: 60px;*/
+            margin: 2vh 1vh 0 0;
             float: left;
             font-family:STCaiyun;
             font-size: 24px;
@@ -59,7 +60,7 @@
         }
 
         a:hover {
-            /* 鼠标经过链接时，链接变成红色 */
+            /* 鼠标经过链接时，链接变成蓝色 */
             color: #0800ff;
             font-size: 30px;
 
@@ -68,7 +69,8 @@
 
         .header {
             width: 100%;
-            padding: 20px 0;
+            height: 8vh;
+            padding: 2vh 0;
             text-align: center;
             background-color: #f2f2f2;
             border-bottom: 1px solid #ddd;
@@ -78,12 +80,13 @@
             font-size: 1.2em;
         }
         .header-title {
-            margin: 5px 0;
+            margin: 1vh 0;
             font-size: 1.5em;
             font-weight: bold;
         }
         .container {
             width: 95%;
+            height: 75vh;
             display: flex;
             justify-content: space-between;
             margin-top: 20px;
@@ -92,25 +95,27 @@
         }
 
         .chat, .voice-recognition {
-            padding: 20px; /* 内边距为20像素 */
+            padding: 2vh; /* 内边距为20像素 */
             /*height: calc(100% - 167px);*/
         }
 
         .chat {
             border-right: 1px solid #ddd; /* 聊天区域右侧有1像素的实线边框 */
-            flex-basis: calc(33.333% - 10px); /* 占三分之一宽度，减去右边距 */
+            flex-basis: calc(33.333% - 1vh); /* 占三分之一宽度，减去右边距 */
+            height: 70vh;
         }
 
         .voice-recognition {
             flex-grow: 1; /* 允许元素增长以占据更多空间 */
-            flex-basis: calc(66.666% - 20px); /* 占三分之二宽度，减去左右内边距 */
+            flex-basis: calc(66.666% - 2vh); /* 占三分之二宽度，减去左右内边距 */
+            height: 70vh;
         }
         .info-list {
             list-style: none;
             padding: 0;
         }
         .info-list li {
-            padding: 5px 0;
+            padding: 1vh 0;
             border-bottom: 1px dashed #ddd;
         }
         .stats {
@@ -118,7 +123,7 @@
             flex-direction: row; /* 设置子元素水平排列 */
             align-items: flex-start; /* 使子元素在交叉轴上（即垂直方向）左对齐 */
             margin-bottom: 5px; /* 为每个.stats块添加一些间隔 */
-            padding: 10px 0;
+            padding: 1vh 0;
             border-bottom: 1px solid #ddd;
         }
 
@@ -133,11 +138,11 @@
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 20px;
+            margin-top: 2vh;
         }
         table th, table td {
             border: 1px solid #ddd;
-            padding: 8px;
+            padding: 1vh;
             text-align: left;
         }
         table th {
@@ -145,7 +150,7 @@
         }
         .play-button {
             cursor: pointer;
-            padding: 5px 10px;
+            padding: 1vh 2vh;
             background-color: #007bff;
             color: white;
             border: none;
@@ -157,7 +162,7 @@
         }
         .download-button {
             cursor: pointer;
-            padding: 5px 10px;
+            padding: 1vh 2vh;
             background-color: #28a745;
             color: white;
             border: none;
@@ -169,14 +174,14 @@
         }
 
 
-        .chat_commento{
-            width: 450px;
-            height: 650px;
+        .chat_comment{
+            width: 100%;
+            height: 100%;
             margin: auto;
             border-radius: 10px;
             border: 2px solid #f4f5f7;
             overflow-x: hidden; //水平隐藏
-        overflow-y: scroll; //垂直滚动
+            overflow-y: scroll; //垂直滚动
         }
         .clearfix::after{
             content: "";
@@ -191,7 +196,7 @@
         /* 左边 */
         .chat_middle{
             width: 450px;
-            height: 455px;
+            height: 100%;
             position: relative;
             box-sizing: border-box;
             overflow: auto;
@@ -243,7 +248,7 @@
         /* 右边 */
         .chat_right{
             width: 100%;
-            height: 120px;
+            height: 100px;
             margin-top: 10px;
         }
         .chat_right_item_1{
@@ -351,8 +356,8 @@
                 </span>
         <ul>
             <a href="index.html" >首页</a>
-            <a href="voice.html" target="_blank">语音态势识别</a>
-            <a href="http://www.cxy521.com/" target="_blank">页面二</a>
+            <a href="voice.html" target="_blank">语音态势感知</a>
+            <a href="h_test.html" target="_blank">视频界面</a>
             <a href="message_board.html" target="_blank">页面三</a>
         </ul>
     </div>
@@ -363,7 +368,7 @@
 </div>
 <div class="container">
     <div class="chat">
-        <div class="chat_commento">
+        <div class="chat_comment">
             <!-- line -->
             <div class="line"></div>
             <!-- middle -->
@@ -371,95 +376,236 @@
                 <!-- 左边 -->
                 <div class="chat_left clearfix">
                     <div class="chat_left_item_1">
-                        <img src="image/plane.png" alt="头像" class="chat-avatar">
+                        <img src="image/plane0.jpg" alt="头像" class="chat-avatar">
                     </div>
                     <div class="chat_left_item_2">
                         <div class="chat_left_content">
-                            机坪你好 东方1234 停机位10 准备好
+                            东方5327 拖车挂好了
                         </div>
                     </div>
                 </div>
                 <!--右边 -->
                 <div class="chat_right">
                     <div class="chat_right_item_1">
-                        <img src="image/person.png" alt="头像" class="chat-avatar">
+                        <img src="image/person1.jpg" alt="头像" class="chat-avatar">
                     </div>
                     <div class="chat_right_item_2 ">
                         <div class="chat_right_content">
-                            东方1234 挂拖车 挂好报
+                            东方5327 稍等
                         </div>
                     </div>
                 </div>
-                <!-- l_2 -->
+                <!-- 左边 -->
                 <div class="chat_left clearfix">
                     <div class="chat_left_item_1">
-                        <img src="image/plane.png" alt="头像" class="chat-avatar">
+                        <img src="image/plane1.jpg" alt="头像" class="chat-avatar">
                     </div>
                     <div class="chat_left_item_2">
                         <div class="chat_left_content">
-                            挂拖车 挂好报 东方1234
+                            南方8484 拖车挂好
                         </div>
                     </div>
                 </div>
-                <!-- l_3 -->
-                <div class="chat_left clearfix">
-                    <div class="chat_left_item_1">
-                        <img src="image/plane.png" alt="头像" class="chat-avatar">
+                <!--右边 -->
+                <div class="chat_right">
+                    <div class="chat_right_item_1">
+                        <img src="image/person1.jpg" alt="头像" class="chat-avatar">
                     </div>
-                    <div class="chat_left_item_2">
-                        <div class="chat_left_content">
-                            东方1234 拖车挂好 请求推开
+                    <div class="chat_right_item_2 ">
+                        <div class="chat_right_content">
+                            南方8484 稍等
                         </div>
                     </div>
                 </div>
-                <!-- l_4 -->
+                <!-- 左边 -->
                 <div class="chat_left clearfix">
                     <div class="chat_left_item_1">
-                        <img src="image/plane.png" alt="头像" class="chat-avatar">
+                        <img src="image/plane1.jpg" alt="头像" class="chat-avatar">
                     </div>
                     <div class="chat_left_item_2">
                         <div class="chat_left_content">
-                            东方1234 拖车挂好 请求推开
+                            南方8484
                         </div>
                     </div>
                 </div>
-                <!-- l_4 -->
-                <div class="chat_left clearfix">
-                    <div class="chat_left_item_1">
-                        <img src="image/plane.png" alt="头像" class="chat-avatar">
+                <!--右边 -->
+                <div class="chat_right">
+                    <div class="chat_right_item_1">
+                        <img src="image/person1.jpg" alt="头像" class="chat-avatar">
                     </div>
-                    <div class="chat_left_item_2">
-                        <div class="chat_left_content">
-                            东方1234 拖车挂好 请求推开
+                    <div class="chat_right_item_2 ">
+                        <div class="chat_right_content">
+                            深圳8970 有拖车吗
                         </div>
                     </div>
                 </div>
-                <!-- l_5 -->
+                <!-- 左边 -->
                 <div class="chat_left clearfix">
                     <div class="chat_left_item_1">
-                        <img src="image/plane.png" alt="头像" class="chat-avatar">
+                        <img src="image/plane2.jpg" alt="头像" class="chat-avatar">
                     </div>
                     <div class="chat_left_item_2">
                         <div class="chat_left_content">
-                            东方1234 拖车挂好 请求推开
+                            拖车挂好了 深圳8970
+                        </div>
+                    </div>
+                </div>
+                <!--右边 -->
+                <div class="chat_right">
+                    <div class="chat_right_item_1">
+                        <img src="image/person1.jpg" alt="头像" class="chat-avatar">
+                    </div>
+                    <div class="chat_right_item_2 ">
+                        <div class="chat_right_content">
+                            深圳8970 可以按绿色程序推出开车
+                        </div>
+                    </div>
+                </div>
+                <!-- 左边 -->
+                <div class="chat_left clearfix">
+                    <div class="chat_left_item_1">
+                        <img src="image/plane2.jpg" alt="头像" class="chat-avatar">
+                    </div>
+                    <div class="chat_left_item_2">
+                        <div class="chat_left_content">
+                            绿色程序推出开车 深圳8970
+                        </div>
+                    </div>
+                </div>
+                <!--右边 -->
+                <div class="chat_right">
+                    <div class="chat_right_item_1">
+                        <img src="image/person1.jpg" alt="头像" class="chat-avatar">
+                    </div>
+                    <div class="chat_right_item_2 ">
+                        <div class="chat_right_content">
+                            南方8484 可以绿色程序推出开车
+                        </div>
+                    </div>
+                </div>
+                <!-- 左边 -->
+                <div class="chat_left clearfix">
+                    <div class="chat_left_item_1">
+                        <img src="image/plane1.jpg" alt="头像" class="chat-avatar">
+                    </div>
+                    <div class="chat_left_item_2">
+                        <div class="chat_left_content">
+                            绿色程序推出开车 南方8484
+                        </div>
+                    </div>
+                </div>
+                <!-- 左边 -->
+                <div class="chat_left clearfix">
+                    <div class="chat_left_item_1">
+                        <img src="image/plane0.jpg" alt="头像" class="chat-avatar">
+                    </div>
+                    <div class="chat_left_item_2">
+                        <div class="chat_left_content">
+                            机坪东方5327 是有流控吗
+                        </div>
+                    </div>
+                </div>
+                <!--右边 -->
+                <div class="chat_right">
+                    <div class="chat_right_item_1">
+                        <img src="image/person1.jpg" alt="头像" class="chat-avatar">
+                    </div>
+                    <div class="chat_right_item_2 ">
+                        <div class="chat_right_content">
+                            东方5327 现在跑道排队比较多 等待五到十分钟吧
+                        </div>
+                    </div>
+                </div>
+                <!-- 左边 -->
+                <div class="chat_left clearfix">
+                    <div class="chat_left_item_1">
+                        <img src="image/plane0.jpg" alt="头像" class="chat-avatar">
+                    </div>
+                    <div class="chat_left_item_2">
+                        <div class="chat_left_content">
+                            收到了 东方5327
+                        </div>
+                    </div>
+                </div>
+                <!-- 左边 -->
+                <div class="chat_left clearfix">
+                    <div class="chat_left_item_1">
+                        <img src="image/plane2.jpg" alt="头像" class="chat-avatar">
+                    </div>
+                    <div class="chat_left_item_2">
+                        <div class="chat_left_content">
+                            深圳8970 G前
+                        </div>
+                    </div>
+                </div>
+                <!--右边 -->
+                <div class="chat_right">
+                    <div class="chat_right_item_1">
+                        <img src="image/person1.jpg" alt="头像" class="chat-avatar">
+                    </div>
+                    <div class="chat_right_item_2 ">
+                        <div class="chat_right_content">
+                            深圳8970 联系塔台130点35再见
+                        </div>
+                    </div>
+                </div>
+                <!-- 左边 -->
+                <div class="chat_left clearfix">
+                    <div class="chat_left_item_1">
+                        <img src="image/plane2.jpg" alt="头像" class="chat-avatar">
+                    </div>
+                    <div class="chat_left_item_2">
+                        <div class="chat_left_content">
+                            13035再见深圳8970
+                        </div>
+                    </div>
+                </div>
+                <!-- 左边 -->
+                <div class="chat_left clearfix">
+                    <div class="chat_left_item_1">
+                        <img src="image/plane1.jpg" alt="头像" class="chat-avatar">
+                    </div>
+                    <div class="chat_left_item_2">
+                        <div class="chat_left_content">
+                            南方8484能滑了吗
+                        </div>
+                    </div>
+                </div>
+                <!--右边 -->
+                <div class="chat_right">
+                    <div class="chat_right_item_1">
+                        <img src="image/person1.jpg" alt="头像" class="chat-avatar">
+                    </div>
+                    <div class="chat_right_item_2 ">
+                        <div class="chat_right_content">
+                            15秒南方8484
+                        </div>
+                    </div>
+                </div>
+                <!--右边 -->
+                <div class="chat_right">
+                    <div class="chat_right_item_1">
+                        <img src="image/person1.jpg" alt="头像" class="chat-avatar">
+                    </div>
+                    <div class="chat_right_item_2 ">
+                        <div class="chat_right_content">
+                            南方8484滑出
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
-
     </div>
 
 
     <div class="voice-recognition">
         <div class="stats">
             <div>音量（分贝）：55</div>
-            <div>当前航班数：1</div>
+            <div>当前航班数：3</div>
         </div>
         <div class="stats">
             <div>语速（字每分钟）：123</div>
-            <div>已发指令（条）：1</div>
+            <div>已发指令（条）：9</div>
         </div>
         <div class="stats">
             <div>语音识别率（百分比）：97%</div>
@@ -471,28 +617,77 @@
                 <th class="centered-cell">出发/到达机场</th>
                 <th class="centered-cell">停机位</th>
                 <th class="centered-cell">状态</th>
-                <th class="centered-cell">音频时长（分钟）</th>
+                <th class="centered-cell">音频时长（秒）</th>
                 <th class="centered-cell">回放（增强）</th>
                 <th class="centered-cell">提取文字</th>
             </tr>
-            <!-- Sample table row -->
+            <!-- 1 -->
             <tr>
-                <td class="centered-cell">CSN4321</td>
-                <td class="centered-cell">ZBTJ/ZGNN</td>
-                <td class="centered-cell">10</td>
+                <td class="centered-cell">CSN3454</td>
+                <td class="centered-cell">ZGGG/ZGSZ</td>
+                <td class="centered-cell">541</td>
+                <td class="centered-cell">进港</td>
+                <td class="centered-cell">27</td>
+                <td class="centered-cell">
+                    <button class="play-button" id="playPauseBtn1" onclick="togglePlayPause('audio1')">播放</button>
+                    <audio id="audio1" src="audio/南方3454.wav" type="audio/mpeg"></audio>
+                </td>
+                <td class="centered-cell">
+                    <button class="download-button" data-file="text/南方3454.txt" onclick="downloadFile(this)">下载</button>
+                </td>
+            </tr>
+            <!-- 2 -->
+            <tr>
+                <td class="centered-cell">CCA4311</td>
+                <td class="centered-cell">ZBTJ/ZGSZ</td>
+                <td class="centered-cell">360</td>
+                <td class="centered-cell">进港</td>
+                <td class="centered-cell">14</td>
+                <td class="centered-cell">
+                    <button class="play-button" id="playPauseBtn2" onclick="togglePlayPause('audio2')">播放</button>
+                    <audio id="audio2" src="audio/国航4311.wav" type="audio/mpeg"></audio>
+                </td>
+                <td class="centered-cell">
+                    <button class="download-button" data-file="text/国航4311.txt" onclick="downloadFile(this)">下载</button>
+                </td>
+            </tr>
+            <!-- 3 -->
+            <tr>
+                <td class="centered-cell">南方3071</td>
+                <td class="centered-cell">ZGSZ/ZGNN</td>
+                <td class="centered-cell">309</td>
                 <td class="centered-cell">离港</td>
-                <td class="centered-cell">9</td>
-                <td class="centered-cell"><button class="play-button">播放</button></td>
-                <td class="centered-cell"><button class="download-button">下载</button></td>
+                <td class="centered-cell">39</td>
+                <td class="centered-cell">
+                    <button class="play-button" id="playPauseBtn3" onclick="togglePlayPause('audio3')">播放</button>
+                    <audio id="audio3" src="audio/南方3071.wav" type="audio/mpeg"></audio>
+                </td>
+                <td class="centered-cell">
+                    <button class="download-button" data-file="text/南方3071.txt" onclick="downloadFile(this)">下载</button>
+                </td>
+            </tr>
+            <!-- 4 -->
+            <tr>
+                <td class="centered-cell">春秋6727</td>
+                <td class="centered-cell">ZGSZ/ZHHH</td>
+                <td class="centered-cell">344</td>
+                <td class="centered-cell">离港</td>
+                <td class="centered-cell">37</td>
+                <td class="centered-cell">
+                    <button class="play-button" id="playPauseBtn4" onclick="togglePlayPause('audio4')">播放</button>
+                    <audio id="audio4" src="audio/春秋6727.wav" type="audio/mpeg"></audio>
+                </td>
+                <td class="centered-cell">
+                <button class="download-button" data-file="text/春秋6727.txt" onclick="downloadFile(this)">下载</button>
+                </td>
             </tr>
         </table>
     </div>
 </div>
-
 </body>
 
 <script>
-    // 脚本开始
+    // 日期自动更新
     function updateTime() {
         // 创建一个新日期对象，获取当前的北京时间
         var now = new Date();
@@ -511,6 +706,41 @@
     window.onload = function() {
         setInterval(updateTime, 1000);
     };
-    // 脚本结束
+
+    //播放加更改
+    function togglePlayPause(audioId) {
+        var audio = document.getElementById(audioId);
+        var button = document.getElementById('playPauseBtn' + audioId.replace('audio', ''));
+        if (audio.paused) {
+            audio.play();
+            button.innerHTML = '暂停';
+        } else {
+            audio.pause();
+            button.innerHTML = '播放';
+        }
+    }
+
+    // 下载
+    function downloadFile(button) {
+        // 从按钮的数据属性中获取文件URL
+        var fileUrl = button.getAttribute('data-file');
+
+        // 检查是否获取到了文件URL
+        if (fileUrl) {
+            // 创建一个临时的<a>标签
+            var downloadLink = document.createElement('a');
+            downloadLink.href = fileUrl;
+            downloadLink.download = ''; // 可以从文件URL或按钮中获取文件名
+
+            // 触发点击事件，开始下载
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+
+            // 清理DOM
+            document.body.removeChild(downloadLink);
+        } else {
+            console.error('No file URL found for the download button.');
+        }
+    }
 </script>
 </html>
