@@ -5,7 +5,7 @@
     <title>语音识别态势感知</title>
     <style>
         html {
-            font-size: 100%; /* 基于视口宽度的字体大小 */
+            font-size: 80%; /* 基于视口宽度的字体大小 */
         }
 
         body {
@@ -195,17 +195,17 @@
         /* middle */
         /* 左边 */
         .chat_middle{
-            width: 450px;
+            width: 100%;
             height: 100%;
             position: relative;
             box-sizing: border-box;
             overflow: auto;
-            border-width: 0px;
+            border-width: 0;
         }
         .chat_left{
             width: 100%;
-            height: 60px;
-            margin-top: 10px;
+            height: auto;
+            margin-top: 2px;
         }
         .chat_left_item_1{
             /*width: 50px;*/
@@ -219,8 +219,7 @@
             line-height: 50px;
             color: white;
             border-radius: 25px;
-        }
-        .chat_left_item_1 {
+
             position: relative; /* 为头像定位做准备 */
             padding-left: 60px; /* 为头像图片留出空间 */
         }
@@ -231,25 +230,28 @@
             top: 0; /* 头像顶部对齐 */
             width: 50px; /* 头像宽度，根据需要调整 */
             height: 50px; /* 头像高度，根据需要调整 */
-            border: 2px solid #ddd; /* 为头像添加边框，如有需要 */
+            border: 1px solid #ddd; /* 为头像添加边框，如有需要 */
         }
-        /*.chat_left_item_2 .chat_left_chat{*/
-        /*    float: left;*/
-        /*}*/
-        /*聊天框*/
-        .chat_left_item_2 .chat_left_content{
-            padding: 15px;
+        .chat_left_item_2{
+            width: 55%;
+            /*height: 100px;*/
+            float: left;
             margin-top: 10px;
-            background-color: #f4f5f7;
-            display: inline-block;
+        }
+        .chat_left_content{
+            float: left;
+            padding: 15px;
             border-radius: 10px;
-            border-top-left-radius: 0px;
+            margin-top: 10px;
+            border-top-right-radius: 0px;
+            background-color: #f4f5f7;
+            color: black;
         }
         /* 右边 */
         .chat_right{
             width: 100%;
-            height: 100px;
-            margin-top: 10px;
+            height: auto;
+            margin-top: 2px;
         }
         .chat_right_item_1{
             /*width: 50px;*/
@@ -263,23 +265,13 @@
             line-height: 50px;
             color: white;
             border-radius: 25px;
-        }
-        .chat_right_item_1 {
+
             position: relative; /* 为头像定位做准备 */
             padding-left: 60px; /* 为头像图片留出空间 */
         }
-        .chat-avatar {
-            width: 40px; /* 根据需要设置头像的宽度 */
-            height: 40px; /* 根据需要设置头像的高度 */
-            /* 如果需要方形头像，确保 border-radius 为 0 */
-            border-radius: 0;
-            /* 添加其他样式，如边框等 */
-            border: 1px solid #ddd;
-        }
-
         .chat_right_item_2{
             width: 55%;
-            height: 100px;
+            /*height: 100px;*/
             float: right;
             margin-top: 10px;
         }
@@ -291,31 +283,6 @@
             border-top-right-radius: 0px;
             background-color: #4F7cff;
             color: white;
-        }
-
-        .chat_context{
-            width: 100%;
-            height: 100%;
-            font-size: 17px;
-            box-sizing: border-box;
-            outline: none;
-            border-bottom-left-radius: 10px;
-            border-bottom-right-radius: 10px;
-            border-width: 0px;
-            padding: 16px;
-        }
-        .chat_commit{
-            width: 80px;
-            height: 30px;
-            color: white;
-            background-color: #4F7cff;
-            line-height: 30px;
-            text-align: center;
-            border-radius: 5px;
-            position: absolute;
-            right: 10px;
-            bottom: 20px;
-            margin-right: 10px;
         }
 
         .centered-cell {
@@ -385,9 +352,9 @@
                     </div>
                 </div>
                 <!--右边 -->
-                <div class="chat_right">
+                <div class="chat_right clearfix">
                     <div class="chat_right_item_1">
-                        <img src="image/person1.jpg" alt="头像" class="chat-avatar">
+                        <img src="image/person2.jpg" alt="头像" class="chat-avatar">
                     </div>
                     <div class="chat_right_item_2 ">
                         <div class="chat_right_content">
@@ -407,9 +374,9 @@
                     </div>
                 </div>
                 <!--右边 -->
-                <div class="chat_right">
+                <div class="chat_right clearfix">
                     <div class="chat_right_item_1">
-                        <img src="image/person1.jpg" alt="头像" class="chat-avatar">
+                        <img src="image/person2.jpg" alt="头像" class="chat-avatar">
                     </div>
                     <div class="chat_right_item_2 ">
                         <div class="chat_right_content">
@@ -429,9 +396,9 @@
                     </div>
                 </div>
                 <!--右边 -->
-                <div class="chat_right">
+                <div class="chat_right clearfix">
                     <div class="chat_right_item_1">
-                        <img src="image/person1.jpg" alt="头像" class="chat-avatar">
+                        <img src="image/person2.jpg" alt="头像" class="chat-avatar">
                     </div>
                     <div class="chat_right_item_2 ">
                         <div class="chat_right_content">
@@ -451,9 +418,9 @@
                     </div>
                 </div>
                 <!--右边 -->
-                <div class="chat_right">
+                <div class="chat_right clearfix">
                     <div class="chat_right_item_1">
-                        <img src="image/person1.jpg" alt="头像" class="chat-avatar">
+                        <img src="image/person2.jpg" alt="头像" class="chat-avatar">
                     </div>
                     <div class="chat_right_item_2 ">
                         <div class="chat_right_content">
@@ -473,9 +440,9 @@
                     </div>
                 </div>
                 <!--右边 -->
-                <div class="chat_right">
+                <div class="chat_right clearfix">
                     <div class="chat_right_item_1">
-                        <img src="image/person1.jpg" alt="头像" class="chat-avatar">
+                        <img src="image/person2.jpg" alt="头像" class="chat-avatar">
                     </div>
                     <div class="chat_right_item_2 ">
                         <div class="chat_right_content">
@@ -506,9 +473,9 @@
                     </div>
                 </div>
                 <!--右边 -->
-                <div class="chat_right">
+                <div class="chat_right clearfix">
                     <div class="chat_right_item_1">
-                        <img src="image/person1.jpg" alt="头像" class="chat-avatar">
+                        <img src="image/person2.jpg" alt="头像" class="chat-avatar">
                     </div>
                     <div class="chat_right_item_2 ">
                         <div class="chat_right_content">
@@ -539,9 +506,9 @@
                     </div>
                 </div>
                 <!--右边 -->
-                <div class="chat_right">
+                <div class="chat_right clearfix">
                     <div class="chat_right_item_1">
-                        <img src="image/person1.jpg" alt="头像" class="chat-avatar">
+                        <img src="image/person2.jpg" alt="头像" class="chat-avatar">
                     </div>
                     <div class="chat_right_item_2 ">
                         <div class="chat_right_content">
@@ -572,9 +539,9 @@
                     </div>
                 </div>
                 <!--右边 -->
-                <div class="chat_right">
+                <div class="chat_right clearfix">
                     <div class="chat_right_item_1">
-                        <img src="image/person1.jpg" alt="头像" class="chat-avatar">
+                        <img src="image/person2.jpg" alt="头像" class="chat-avatar">
                     </div>
                     <div class="chat_right_item_2 ">
                         <div class="chat_right_content">
@@ -583,9 +550,9 @@
                     </div>
                 </div>
                 <!--右边 -->
-                <div class="chat_right">
+                <div class="chat_right clearfix">
                     <div class="chat_right_item_1">
-                        <img src="image/person1.jpg" alt="头像" class="chat-avatar">
+                        <img src="image/person2.jpg" alt="头像" class="chat-avatar">
                     </div>
                     <div class="chat_right_item_2 ">
                         <div class="chat_right_content">
@@ -623,14 +590,14 @@
             </tr>
             <!-- 1 -->
             <tr>
-                <td class="centered-cell">CSN3454</td>
+                <td class="centered-cell">南方3454</td>
                 <td class="centered-cell">ZGGG/ZGSZ</td>
                 <td class="centered-cell">541</td>
                 <td class="centered-cell">进港</td>
                 <td class="centered-cell">27</td>
                 <td class="centered-cell">
                     <button class="play-button" id="playPauseBtn1" onclick="togglePlayPause('audio1')">播放</button>
-                    <audio id="audio1" src="audio/南方3454.wav" type="audio/mpeg"></audio>
+                    <audio id="audio1" src="audio/南方3454_enhanced.wav" type="audio/mpeg"></audio>
                 </td>
                 <td class="centered-cell">
                     <button class="download-button" data-file="text/南方3454.txt" onclick="downloadFile(this)">下载</button>
@@ -638,14 +605,14 @@
             </tr>
             <!-- 2 -->
             <tr>
-                <td class="centered-cell">CCA4311</td>
+                <td class="centered-cell">国航4311</td>
                 <td class="centered-cell">ZBTJ/ZGSZ</td>
                 <td class="centered-cell">360</td>
                 <td class="centered-cell">进港</td>
                 <td class="centered-cell">14</td>
                 <td class="centered-cell">
                     <button class="play-button" id="playPauseBtn2" onclick="togglePlayPause('audio2')">播放</button>
-                    <audio id="audio2" src="audio/国航4311.wav" type="audio/mpeg"></audio>
+                    <audio id="audio2" src="audio/国航4311_enhanced.wav" type="audio/mpeg"></audio>
                 </td>
                 <td class="centered-cell">
                     <button class="download-button" data-file="text/国航4311.txt" onclick="downloadFile(this)">下载</button>
@@ -660,7 +627,7 @@
                 <td class="centered-cell">39</td>
                 <td class="centered-cell">
                     <button class="play-button" id="playPauseBtn3" onclick="togglePlayPause('audio3')">播放</button>
-                    <audio id="audio3" src="audio/南方3071.wav" type="audio/mpeg"></audio>
+                    <audio id="audio3" src="audio/南方3071_enhanced.wav" type="audio/mpeg"></audio>
                 </td>
                 <td class="centered-cell">
                     <button class="download-button" data-file="text/南方3071.txt" onclick="downloadFile(this)">下载</button>
@@ -675,7 +642,7 @@
                 <td class="centered-cell">37</td>
                 <td class="centered-cell">
                     <button class="play-button" id="playPauseBtn4" onclick="togglePlayPause('audio4')">播放</button>
-                    <audio id="audio4" src="audio/春秋6727.wav" type="audio/mpeg"></audio>
+                    <audio id="audio4" src="audio/春秋6727_enhanced.wav" type="audio/mpeg"></audio>
                 </td>
                 <td class="centered-cell">
                 <button class="download-button" data-file="text/春秋6727.txt" onclick="downloadFile(this)">下载</button>
